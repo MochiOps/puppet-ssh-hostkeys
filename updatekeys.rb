@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
+
+# Where your keys are stored
 keylocation = "/nfs/puppet/dist/keys"
+
+# Where you want your init.pp file to be written to so puppet can use it
 initlocation = "/etc/puppet/modules-prod/sshkeys/manifests"
+
+# Bring the full path. Change init.pp to something else if you're not using that.
 fullpath = File.join(initlocation, "init.pp")
 
 File.delete(fullpath) if File.file?(fullpath)
@@ -23,6 +29,3 @@ end
 nastystring << "  }\n}\n"
 f.write(nastystring)
 f.close()
-sleep(2)
-Dir.chdir(initlocation)
-exec 'svn commit -m "ssh key auto-commit"'
