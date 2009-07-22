@@ -1,0 +1,3 @@
+This script will generate a Puppet init file full of ssh hosts keys. We use this approach to guarantee consistent ssh host keys even if the machine is rebuilt several times. The keys are loaded from a single directory specified in the script.
+
+There are no arguments in here and the script currently isn't super portable because I wrote it for work, and it works for my needs. Should I get a spare 5 minutes one day, I'll update it with proper command-line switches and stuff. Until then, you can search and replace as needed. If you can't do that, you shouldn't be running Puppet.
